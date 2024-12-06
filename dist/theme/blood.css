@@ -8,10 +8,12 @@
 .reveal .has-light-background h6 {
   color: #222;
 }
+
+
 :root {
   --r-background-color: #222;
   --r-main-font: Ubuntu, sans-serif;
-  --r-main-font-size: 40px;
+  --r-main-font-size: 20px;
   --r-main-color: #eee;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
@@ -46,10 +48,10 @@
   --r-heading5-size: 0.8em;
   --r-heading6-size: 0.6em;
   --r-code-font: monospace;
-  --r-link-color: #a23;
-  --r-link-color-dark: #6a1520;
-  --r-link-color-hover: #dd5566;
-  --r-selection-background-color: #a23;
+  --r-link-color: rgb(34, 104, 170);
+  --r-link-color-dark: #1150af;
+  --r-link-color-hover: #558cdd;
+  --r-selection-background-color: rgb(34, 77, 170);
   --r-selection-color: #fff;
 }
 .reveal-viewport {
@@ -165,8 +167,8 @@
 .reveal dl,
 .reveal ul {
   display: inline-block;
-  text-align: left;
-  margin: 0 0 0 1em;
+  text-align: right;
+  margin: 0 1em 0 0;
 }
 .reveal ol {
   list-style-type: decimal;
@@ -180,6 +182,18 @@
 .reveal ul ul ul {
   list-style-type: circle;
 }
+
+ul, ol {
+  justify-content: right;
+  direction: rtl; /* Set text direction to right-to-left */
+  text-align: right;
+  line-height: 1.5em;
+}
+li {
+  margin-bottom: 1em;
+  padding: 2px;
+}
+
 .reveal ul ul,
 .reveal ul ol,
 .reveal ol ol,

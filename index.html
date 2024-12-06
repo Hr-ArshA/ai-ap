@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="./blood.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# هوش مصنوعی
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **مقدمه**
+
+- هوش مصنوعی (AI) آموزش را با شخصی‌سازی تجربیات یادگیری و ساده‌سازی تولید محتوا متحول کرده است.
+-  مزایا:
+    - صرفه‌جویی در زمان برای معلمان.
+    - ایجاد محتوای جذاب و تعاملی.
+    - تطبیق با نیازهای منحصر به فرد یادگیرندگان.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **کاربردهای هوش مصنوعی در تدریس**
+
+-  **یادگیری شخصی‌سازی شده**:
+    - ابزارهای هوش مصنوعی محتوا و سرعت را بر اساس عملکرد فردی دانش‌آموزان تنظیم می‌کنند.
+    - مثال‌ها: آزمون‌های تطبیقی، برنامه‌های درسی سفارشی.
+-  **اتوماسیون وظایف اداری**:
+    - تصحیح تکالیف، پیگیری پیشرفت دانش‌آموزان و ایجاد گزارش‌ها.
+-  **دستیارهای مجازی آموزشی**:
+    - چت‌بات‌های مجهز به هوش مصنوعی پاسخ سوالات را می‌دهند و پشتیبانی فوری ارائه می‌کنند.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **ایجاد محتوای آموزشی با هوش مصنوعی**
+
+-  **تولید محتوا**:
+    - ایجاد برنامه‌های درسی، آزمون‌ها و برگه‌های تمرین با استفاده از ابزارهای هوش مصنوعی.
+    - مثال: تولید مسائل تمرینی برای ریاضی یا لیست کلمات برای آموزش زبان.
+-  **محتوای تعاملی**:
+    - استفاده از هوش مصنوعی برای ساخت بازی‌های جذاب، شبیه‌سازی‌ها و تجربیات واقعیت مجازی.
+    - افزایش تعامل با بازخورد و تحلیل‌های فوری.
+-  **ترجمه زبان**:
+    - ترجمه مواد آموزشی به زبان‌های مختلف برای دسترسی جهانی.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **ابزارهای هوش مصنوعی برای معلمان**
+
+-  **چت‌جی‌پی‌تی و مدل‌های مشابه**:
+    - پاسخ به سوالات، تولید محتوا، ایده‌پردازی.
+-  **پلتفرم‌های فناوری آموزشی**:
+    - پلتفرم‌های تقویت‌شده با هوش مصنوعی مانند Kahoot، Quizlet و Duolingo.
+-  **سیستم‌های یادگیری تطبیقی**:
+    - ابزارهایی مانند DreamBox و Smart Sparrow که مسیرهای یادگیری را شخصی‌سازی می‌کنند.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **چگونگی ادغام هوش مصنوعی در تدریس**
+
+
+-  **شروع کوچک**:
+    - با ابزارهای هوش مصنوعی برای وظایف ساده مانند تصحیح یا ایجاد آزمون‌ها شروع کنید.
+-  **ترکیب با تخصص انسانی**:
+    - از هوش مصنوعی برای پشتیبانی، نه جایگزینی روش‌های تدریس سنتی استفاده کنید.
+-  **تشویق به همکاری**:
+    - دانش‌آموزان را در استفاده از هوش مصنوعی برای پژوهش، ایده‌پردازی و ایجاد پروژه‌ها مشارکت دهید.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **بهترین روش‌ها برای استفاده از هوش مصنوعی در آموزش**
+
+- #### **استفاده اخلاقی**:
+    - اطمینان از احترام هوش مصنوعی به حریم خصوصی و جلوگیری از سوگیری.
+- #### **یادگیری مداوم**:
+    - به‌روز ماندن در مورد جدیدترین ابزارها و روندهای هوش مصنوعی.
+- #### **ارزیابی و تنظیم**:
+    - به‌طور منظم اثربخشی هوش مصنوعی در دستیابی به اهداف یادگیری را ارزیابی کنید.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **چالش‌های استفاده از هوش مصنوعی در آموزش**
+
+-  **دسترسی**:
+    - همه مدارس زیرساخت لازم برای پشتیبانی از هوش مصنوعی را ندارند.
+-  **حریم خصوصی داده‌ها**:
+    - اطمینان از امنیت داده‌های دانش‌آموزان و استفاده مسئولانه از آن.
+-  **وابستگی بیش از حد**:
+    - تعادل بین استفاده از هوش مصنوعی و تدریس انسانی برای حفظ تفکر انتقادی و خلاقیت.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **آینده هوش مصنوعی در آموزش**
+
+
+-  **مدل‌های یادگیری نوآورانه**:
+    - هوش مصنوعی تجربیات یادگیری غوطه‌ور، مانند کلاس‌های AR/VR را ممکن می‌سازد.
+-  **دسترسی جهانی**:
+    - هوش مصنوعی می‌تواند شکاف‌های آموزشی در مناطق کم‌منبع را پر کند.
+- **یادگیری مادام‌العمر**:
+    - پلتفرم‌های تطبیقی برای آموزش مستمر فراتر از مدارس سنتی.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## **نتیجه‌گیری**
+
+- هوش مصنوعی پتانسیل عظیمی برای بهبود تدریس و ایجاد محتوای آموزشی مؤثر دارد.
+- با پذیرش مسئولانه هوش مصنوعی، معلمان می‌توانند نتایج یادگیری را بهبود داده و دانش‌آموزان را برای آینده آماده کنند.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## پایان
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+		  RevealChalkboard, 
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"slide","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
